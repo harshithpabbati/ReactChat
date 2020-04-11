@@ -2,6 +2,14 @@
 #
 .DS_Store
 
+# Build
+#
+build
+
+# intellij
+#
+.idea
+
 # node
 #
 node_modules/

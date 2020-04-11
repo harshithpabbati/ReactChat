@@ -13,7 +13,7 @@ export default class ChatBoard extends Component {
         this.state = {
             isLoading: false,
             inputValue: ''
-        }
+        };
         this.currentUserId = localStorage.getItem(AppString.ID)
         this.currentUserAvatar = localStorage.getItem(AppString.PHOTO_URL)
         this.currentUserNickname = localStorage.getItem(AppString.NICKNAME)
@@ -79,10 +79,6 @@ export default class ChatBoard extends Component {
                     this.props.showToast(0, err.toString())
                 }
             )
-    }
-
-    openListSticker = () => {
-        this.setState({isShowSticker: !this.state.isShowSticker})
     }
 
     onSendMessage = (content, type) => {
@@ -184,15 +180,15 @@ export default class ChatBoard extends Component {
         return (
             <div className="viewChatBoard">
                 {/* Header */}
-                <div className="headerChatBoard">
+                <div className="headerChatBoard sticky-top">
                     <img
                         className="viewAvatarItem"
                         src={this.currentPeerUser.photoUrl}
                         alt="icon avatar"
                     />
                     <span className="textHeaderChatBoard">
-            {this.currentPeerUser.nickname}
-          </span>
+                        {this.currentPeerUser.nickname}
+                    </span>
                 </div>
 
                 {/* List message */}
@@ -226,7 +222,7 @@ export default class ChatBoard extends Component {
 
                     <input
                         className="viewInput"
-                        placeholder="Type your message..."
+                        placeholder="Type a message"
                         value={this.state.inputValue}
                         onChange={event => {
                             this.setState({inputValue: event.target.value})
@@ -258,7 +254,7 @@ export default class ChatBoard extends Component {
 
     renderListMessage = () => {
         if (this.listMessage.length > 0) {
-            let viewListMessage = []
+            let viewListMessage = [];
             this.listMessage.forEach((item, index) => {
                 if (item.idFrom === this.currentUserId) {
                     // Item right (my message)
@@ -357,50 +353,21 @@ export default class ChatBoard extends Component {
                 }
             })
             return viewListMessage
-        } else {
-            return (
-                <div className="viewWrapSayHi">
-                    <span className="textSayHi">Say hi to new friend</span>
-                    <img
-                        className="imgWaveHand"
-                        src={images.ic_wave_hand}
-                        alt="wave hand"
-                    />
-                </div>
-            )
         }
     }
 
     hashString = str => {
         let hash = 0
         for (let i = 0; i < str.length; i++) {
-            hash += Math.pow(str.charCodeAt(i) * 31, str.length - i)
+            hash += Math.pow(str.charCodeAt(i) * 31, str.length - i);
             hash = hash & hash // Convert to 32bit integer
         }
         return hash
-    }
+    };
 
     isLastMessageLeft(index) {
-        if (
-            (index + 1 < this.listMessage.length &&
-                this.listMessage[index + 1].idFrom === this.currentUserId) ||
-            index === this.listMessage.length - 1
-        ) {
-            return true
-        } else {
-            return false
-        }
-    }
-
-    isLastMessageRight(index) {
-        if (
-            (index + 1 < this.listMessage.length &&
-                this.listMessage[index + 1].idFrom !== this.currentUserId) ||
-            index === this.listMessage.length - 1
-        ) {
-            return true
-        } else {
-            return false
-        }
-    }
+        return (index + 1 < this.listMessage.length &&
+            this.listMessage[index + 1].idFrom === this.currentUserId) ||
+            index === this.listMessage.length - 1;
+    };
 }

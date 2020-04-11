@@ -5,16 +5,17 @@
     flex: 1;
     flex-direction: column;
     width: 100%;
-    position: relative;
 }
 
 .headerChatBoard {
     border-bottom: 1px solid #e8e8e8;
     padding: 5px;
-    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    position: -webkit-sticky;
+    display: flex;
+    background: #ffffff;
 }
 
 .textHeaderChatBoard {
@@ -29,7 +30,7 @@
     flex-direction: column;
     overflow-y: scroll;
     padding-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 .viewListContentChat::-webkit-scrollbar-track {
@@ -53,6 +54,11 @@
     justify-content: center;
     height: 50px;
     border-top: 1px solid #e8e8e8;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .icOpenGallery {
@@ -69,18 +75,11 @@
     width: 30px;
 }
 
-.icOpenSticker {
-    width: 30px;
-    height: 30px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
 .icSend {
     width: 30px;
     height: 30px;
     margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 25px;
 }
 
 .viewInput {
@@ -88,7 +87,7 @@
     border-radius: 4px;
     padding-left: 10px;
     padding-right: 10px;
-    border: 0px;
+    border: 0;
     height: 30px;
     font-size: 16px;
 }
@@ -110,16 +109,10 @@ input::placeholder {
     align-self: flex-end;
     margin-right: 45px;
     margin-top: 10px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 0px;
+    border-radius: 8px 8px 0 8px;
     color: #203152;
     text-align: left;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 11px;
-    padding-bottom: 11px;
+    padding: 11px 10px;
 }
 
 .viewItemRight2 {
@@ -129,10 +122,7 @@ input::placeholder {
     align-self: flex-end;
     margin-right: 45px;
     margin-top: 10px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 0px;
+    border-radius: 8px 8px 0px 8px;
     color: #203152;
     text-align: left;
 }
@@ -166,14 +156,8 @@ input::placeholder {
     width: 300px;
     height: auto;
     background-color: #203152;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 11px;
-    padding-bottom: 11px;
+    border-radius: 8px 8px 8px 0px;
+    padding: 11px 10px;
     color: white;
 }
 
@@ -181,10 +165,7 @@ input::placeholder {
     width: 300px;
     height: auto;
     background-color: #203152;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 0px;
-    border-bottom-right-radius: 8px;
+    border-radius: 8px 8px 8px 0px;
     color: white;
 }
 
