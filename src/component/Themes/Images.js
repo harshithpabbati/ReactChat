@@ -1,0 +1,9 @@
+const images = {
+    ic_logout: require('../../images/ic_logout.png'),
+    ic_input_file: require('../../images/ic_input_file.png'),
+    ic_photo: require('../../images/ic_photo.png'),
+    ic_send: require('../../images/ic_send.png'),
+    ic_wave_hand: require('../../images/ic_wave_hand.png'),
+}
+
+export default images
