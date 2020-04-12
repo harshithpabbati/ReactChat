@@ -7,6 +7,15 @@ import images from '../Themes/Images'
 import './ChatBoard.css'
 import {AppString} from './../Const'
 
+const styles = {
+    header: {
+        backgroundColor: "#ffffff",
+        color: "#000000",
+        fontSize: "1.5em",
+        marginLeft: "10px"
+    }
+};
+
 export default class ChatBoard extends Component {
     constructor(props) {
         super(props)
@@ -162,25 +171,26 @@ export default class ChatBoard extends Component {
             this.setState({isLoading: false})
             this.props.showToast(0, 'File is null')
         }
-    }
+    };
 
     onKeyboardPress = event => {
         if (event.key === 'Enter') {
             this.onSendMessage(this.state.inputValue, 0)
         }
-    }
+    };
 
     scrollToBottom = () => {
         if (this.messagesEnd) {
             this.messagesEnd.scrollIntoView({})
         }
-    }
+    };
 
     render() {
         return (
             <div className="viewChatBoard">
                 {/* Header */}
                 <div className="headerChatBoard sticky-top">
+                    <div style={styles.header}>{this.props.title}</div>
                     <img
                         className="viewAvatarItem"
                         src={this.currentPeerUser.photoUrl}
